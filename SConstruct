@@ -15,7 +15,8 @@ godot_headers_path = "godot-cpp/godot_headers/"
 cpp_bindings_path = "godot-cpp/"
 cpp_library = "libgodot-cpp"
 
-
+# only support 64 at this time
+bits = 64
 
 # Try to detect the host platform automatically.
 # This is used if no `platform` argument is passed
@@ -172,7 +173,12 @@ elif env['platform'] == 'windows':
             '-static-libstdc++',
         ])
 
+if env['target'] in ('debug', 'd'):
+    cpp_library += '.debug'
+else:
+    cpp_library += '.release'
 
+cpp_library += '.' + str(bits)
 
 # make sure our binding library is properly includes
 env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
