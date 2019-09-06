@@ -95,6 +95,8 @@ if host_platform == 'windows':
 if env['platform'] == 'linux':
     if env['use_llvm']:
         env['CXX'] = 'clang++'
+    env['target_path'] += 'x11/'
+    cpp_library += '.linux'
 
     env.Append(CCFLAGS=['-fPIC', '-g', '-std=c++14', '-Wwrite-strings'])
     env.Append(LINKFLAGS=["-Wl,-R,'$$ORIGIN'"])
@@ -114,6 +116,8 @@ if env['platform'] == 'linux':
 elif env['platform'] == 'osx':
     # Use Clang on macOS by default
     env['CXX'] = 'clang++'
+    env['target_path'] += 'osx/'
+    cpp_library += '.osx'
 
     if env['bits'] == '32':
         raise ValueError(
@@ -135,7 +139,7 @@ elif env['platform'] == 'osx':
         env.Append(CCFLAGS=['-O3'])
 
 elif env['platform'] == 'windows':
-    env['target_path'] += 'win64'
+    env['target_path'] += 'win64/'
     cpp_library += '.windows'
     if host_platform == 'windows' and not env['use_mingw']:
         # MSVC
