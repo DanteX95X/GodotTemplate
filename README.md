@@ -14,8 +14,8 @@ Author: Daniel Lewiński
 ```console
 $ git clone https://github.com/DanteX95X/GodotTemplate.git --recursive
 $ cd GodotTemplate/godot-cpp/
-$ scons platform=<platform> generate_bindings=yes
+$ scons platform=<windows/linux/osx> target=<debug/release> bits=64 generate_bindings=yes
 $ cd ..
 $ python generate_script.py -c=<your class> -n=<your namespace> -d=<directory>
-$ scons platform=<platform> -j8
+$ scons platform=<windows/linux/osx> target=<debug/release> -j8
 ```
