@@ -4,6 +4,15 @@ import os
 import sys
 
 
+####
+#this can be changed to compile different sources
+base_source_directory='source/'
+base_bin_directory='demo/bin/'
+library_name='libgdexample'
+####
+
+
+
 def add_sources(sources, dir, extension):
     for f in os.listdir(dir):
         if f.endswith('.' + extension):
@@ -64,8 +73,8 @@ opts.Add(EnumVariable(
     allowed_values=('debug', 'release'),
     ignorecase=2
 ))
-opts.Add(PathVariable('target_path', 'The path where the lib is installed.', 'demo/bin/'))
-opts.Add(PathVariable('target_name', 'The library name.', 'libgdexample', PathVariable.PathAccept))
+opts.Add(PathVariable('target_path', 'The path where the lib is installed.', base_bin_directory))
+opts.Add(PathVariable('target_name', 'The library name.', library_name, PathVariable.PathAccept))
 
 env = Environment()
 opts.Update(env)
@@ -194,11 +203,11 @@ def get_subdirectories(abs_path_dir) :
     return lst
 
 #Sources to compile
-env.Append(CPPPATH=['source/'])
-modules = get_subdirectories('source/')
-sources = Glob('source/' + '*.cpp')
+env.Append(CPPPATH=[base_source_directory])
+modules = get_subdirectories(base_source_directory)
+sources = Glob(base_source_directory + '*.cpp')
 for module in modules:
-    sources += Glob(os.path.join('source/', module, '*.cpp'))
+    sources += Glob(os.path.join(base_source_directory, module, '*.cpp'))
 
 library = env.SharedLibrary(
     target=env['target_path'] + env['target_name'], source=sources
