@@ -20,7 +20,7 @@ def add_sources(sources, dir, extension):
 
 
 # Local dependency paths, adapt them to your setup
-godot_headers_path = "godot-cpp/godot_headers/"
+godot_headers_path = "godot-cpp/godot-headers/"
 cpp_bindings_path = "godot-cpp/"
 cpp_library = "libgodot-cpp"
 
