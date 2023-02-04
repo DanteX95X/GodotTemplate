@@ -10,3 +10,4 @@ source
 godot-cpp/include/core
 godot-cpp/include/gen
 
+source/test
