@@ -7,6 +7,7 @@
 #include <godot_cpp/classes/viewport.hpp>
 
 #include <godot_cpp/core/binder_common.hpp>
+#include "../godot-cpp/gen/include/godot_cpp/classes/node2d.hpp"
 
 namespace test
 {
@@ -22,12 +23,12 @@ namespace test
 
 		//void Signal(godot::Node* node, godot::Vector2 position);
 
-		void _init();
-		void _ready();
-		void _process(float delta);
+		void _ready() override;
+		void _process(double delta) override;
 
 	private:
 		bool done;
+		double time{};
 	};
 }
 

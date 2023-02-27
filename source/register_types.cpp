@@ -1,16 +1,18 @@
 #include <gdextension_interface.h>
 
-#include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
+#include <godot_cpp/core/class_db.hpp>
 
 #include "register_types.h"
+#include "hello.h"
 
 void initialize_example_module(godot::ModuleInitializationLevel p_level) {
 	if (p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
 
+	godot::ClassDB::register_class<test::Hello>(true);
 //	ClassDB::register_class<ExampleRef>();
 //	ClassDB::register_class<ExampleMin>();
 //	ClassDB::register_class<Example>();

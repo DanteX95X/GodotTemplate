@@ -1,0 +1,10 @@
+[configuration]
+
+entry_symbol = "test_library_init"
+
+[libraries]
+
+linux.64 = "bin/libgdexample.linux.template_debug.x86_64.so"
+
+
+
