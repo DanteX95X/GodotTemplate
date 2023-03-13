@@ -1,20 +1,12 @@
 #include "hello.h"
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/engine.hpp>
-//#include <utility_functions.hpp>
-
-//#include "test/move_around.h"
 
 namespace test
 {
 	void Hello::_bind_methods()
 	{
 		godot::ClassDB::bind_method(godot::D_METHOD("Signal", "node", "position"), &Hello::Signal);
-//		godot::register_method("_ready", &Hello::_ready);
-//		godot::register_method("_process", &Hello::_process);
-//		godot::register_method("Signal", &Hello::Signal);
-//		godot::ClassDB::bind_virtual_method("Hello", "_ready", &Hello::_ready);
-//		godot::ClassDB::bind_virtual_method("Hello", "_process", &Hello::_process);
 	}
 
 	Hello::Hello()

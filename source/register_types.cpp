@@ -15,11 +15,6 @@ void initialize_example_module(godot::ModuleInitializationLevel p_level) {
 
 	godot::ClassDB::register_class<test::Hello>();
 	godot::ClassDB::register_class<test::MoveAround>();
-//	ClassDB::register_class<ExampleRef>();
-//	ClassDB::register_class<ExampleMin>();
-//	ClassDB::register_class<Example>();
-//	ClassDB::register_class<ExampleVirtual>(true);
-//	ClassDB::register_abstract_class<ExampleAbstract>();
 }
 
 void uninitialize_example_module(godot::ModuleInitializationLevel p_level) {

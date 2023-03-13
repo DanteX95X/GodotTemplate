@@ -22,6 +22,9 @@ namespace test
 		float getSpeed() const;
 		void setSpeed(float speed);
 
+		float getAmplitude() const;
+		void setAmplitude(float amplitude);
+
 		void SignalledMethod(godot::Node* node, godot::Vector2 position);
 
 	private:
