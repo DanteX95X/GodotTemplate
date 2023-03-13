@@ -12,7 +12,7 @@ void initialize_example_module(godot::ModuleInitializationLevel p_level) {
 		return;
 	}
 
-	godot::ClassDB::register_class<test::Hello>(true);
+	godot::ClassDB::register_class<test::Hello>();
 //	ClassDB::register_class<ExampleRef>();
 //	ClassDB::register_class<ExampleMin>();
 //	ClassDB::register_class<Example>();
