@@ -1,5 +1,6 @@
 #include "move_around.h"
 #include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/object.hpp>
 
 namespace test
 {
@@ -11,9 +12,13 @@ namespace test
 		//godot::register_property<MoveAround, float>("amplitude", &MoveAround::amplitude, 10.0f);
 //		godot::register_property<MoveAround, float>("speed", &MoveAround::setSpeed, &MoveAround::getSpeed, 1.0f);
 
-		godot::Dictionary args;
-		args[godot::Variant("node")] = godot::Variant(godot::Variant::OBJECT);
-		args[godot::Variant("position")] = godot::Variant(godot::Variant::VECTOR2);
+//		godot::Dictionary args;
+//		args[godot::Variant("node")] = godot::Variant(godot::Variant::OBJECT);
+//		args[godot::Variant("position")] = godot::Variant(godot::Variant::VECTOR2);
+		ADD_SIGNAL(godot::MethodInfo("done",
+									 godot::PropertyInfo(godot::Variant::OBJECT, "node"),
+									 godot::PropertyInfo(godot::Variant::VECTOR2, "position")));
+//		ClassDB::bind_method(D_METHOD("emit_custom_signal", "name", "value"), &Example::emit_custom_signal);
 //		godot::register_signal<MoveAround>("done", args);
 	}
 

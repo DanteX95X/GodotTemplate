@@ -21,7 +21,7 @@ namespace test
 		Hello();
 		~Hello();
 
-		//void Signal(godot::Node* node, godot::Vector2 position);
+		void Signal(godot::Node* node, godot::Vector2 position);
 
 		void _ready() override;
 		void _process(double delta) override;
