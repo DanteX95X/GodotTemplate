@@ -6,6 +6,7 @@
 
 #include "register_types.h"
 #include "hello.h"
+#include "test/move_around.h"
 
 void initialize_example_module(godot::ModuleInitializationLevel p_level) {
 	if (p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE) {
@@ -13,6 +14,7 @@ void initialize_example_module(godot::ModuleInitializationLevel p_level) {
 	}
 
 	godot::ClassDB::register_class<test::Hello>();
+	godot::ClassDB::register_class<test::MoveAround>();
 //	ClassDB::register_class<ExampleRef>();
 //	ClassDB::register_class<ExampleMin>();
 //	ClassDB::register_class<Example>();

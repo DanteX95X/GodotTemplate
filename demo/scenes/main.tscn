@@ -5,6 +5,6 @@
 [node name="Main" type="Hello"]
 position = Vector2(490, 319)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.7428, 0.0804749)
+[node name="Sprite2D" type="MoveAround" parent="."]
+position = Vector2(0.410312, 18.2063)
 texture = ExtResource("2")
