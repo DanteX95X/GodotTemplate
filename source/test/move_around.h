@@ -25,8 +25,6 @@ namespace test
 		float getAmplitude() const;
 		void setAmplitude(float amplitude);
 
-		void SignalledMethod(godot::Node* node, godot::Vector2 position);
-
 	private:
 		float timePassed{0};
 		float amplitude{10};
