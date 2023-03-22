@@ -17,3 +17,4 @@ export_presets.cfg
 # End of https://www.gitignore.io/api/godot
 
 demo/bin
+demo/.godot
