@@ -18,3 +18,5 @@ export_presets.cfg
 
 demo/bin
 demo/.godot
+
+*.creator.user
