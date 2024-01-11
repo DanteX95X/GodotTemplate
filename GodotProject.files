@@ -1,3 +1,4 @@
+SConstruct
 godot-cpp/CMakeLists.txt
 godot-cpp/LICENSE.md
 godot-cpp/README.md
