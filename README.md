@@ -16,6 +16,7 @@ $ scons target=template_release production=yes
 ```
 
 Now you can open the project in Godot, work on it and export it if you wish.
+IMPORTANT: Remember to update SConstruct file if you want to add new code directories.
 
 Documentation of GDExtensions can be found here:
 [GDExtenstions example](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_cpp_example.html)
@@ -38,7 +39,7 @@ To do that:
 1. Add new release configuration repeating the steps above but changing the Custom Process Step's Arguments to: `target=template_release production=yes`.
 1. Select Run under Build & Run category.
 1. Set Executable to Godot executable.
-1. Set Command line arguments to `-e` if you want to run the whole editor via IDE or type the path to the scene you want Godot to run.
+1. Set Command line arguments to `-e` if you want to run the whole editor (keep in mind that debugger will not attach in this mode)  via IDE or type the path to the scene you want Godot to run.
 
 Now you should be able to build, run and debug the project from QtCreator.
 
