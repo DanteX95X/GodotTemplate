@@ -1,33 +1,34 @@
 #ifndef MOVE_AROUND_H
 #define MOVE_AROUND_H
 
-#include <Godot.hpp>
-#include <Node2D.hpp>
+#include <godot_cpp/core/binder_common.hpp>
+#include <godot_cpp/classes/sprite2d.hpp>
 
 namespace test
 {
-	class MoveAround : public godot::Node2D
+	class MoveAround : public godot::Sprite2D
 	{
-		GODOT_CLASS(MoveAround, godot::Node2D)
-
-	private:
-		float timePassed;
-		float amplitude;
-		float speed;
+		GDCLASS(MoveAround, godot::Sprite2D)
 
 	public:
-		static void _register_methods();
+		static void _bind_methods();
 
 		MoveAround();
 		~MoveAround();
 
 		void _init();
-		void _process(float delta);
+		void _process(double delta) override;
 
 		float getSpeed() const;
 		void setSpeed(float speed);
 
-		void SignalledMethod(godot::Node* node, godot::Vector2 position);
+		float getAmplitude() const;
+		void setAmplitude(float amplitude);
+
+	private:
+		float timePassed{0};
+		float amplitude{10};
+		float speed{7};
 	};
 }
 

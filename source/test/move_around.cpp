@@ -1,17 +1,22 @@
 #include "move_around.h"
+#include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/object.hpp>
 
 namespace test
 {
-	void MoveAround::_register_methods()
+	void MoveAround::_bind_methods()
 	{
-		godot::register_method("_process", &MoveAround::_process);
-		godot::register_property<MoveAround, float>("amplitude", &MoveAround::amplitude, 10.0f);
-		godot::register_property<MoveAround, float>("speed", &MoveAround::setSpeed, &MoveAround::getSpeed, 1.0f);
+		godot::ClassDB::bind_method(godot::D_METHOD("setSpeed"), &MoveAround::setSpeed);
+		godot::ClassDB::bind_method(godot::D_METHOD("getSpeed"), &MoveAround::getSpeed);
+		ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "speed"), "setSpeed", "getSpeed");
 
-		godot::Dictionary args;
-		args[godot::Variant("node")] = godot::Variant(godot::Variant::OBJECT);
-		args[godot::Variant("position")] = godot::Variant(godot::Variant::VECTOR2);
-		godot::register_signal<MoveAround>("done", args);
+		godot::ClassDB::bind_method(godot::D_METHOD("setAmplitude"), &MoveAround::setAmplitude);
+		godot::ClassDB::bind_method(godot::D_METHOD("getAmplitude"), &MoveAround::getAmplitude);
+		ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "amplitude"), "setAmplitude", "getAmplitude");
+
+		ADD_SIGNAL(godot::MethodInfo("done",
+									 godot::PropertyInfo(godot::Variant::OBJECT, "node"),
+									 godot::PropertyInfo(godot::Variant::VECTOR2, "position")));
 	}
 
 	MoveAround::MoveAround()
@@ -24,13 +29,15 @@ namespace test
 
 	void MoveAround::_init()
 	{
-		timePassed = 0;
-		amplitude = 10;
-		speed = 1;
 	}
 
-	void MoveAround::_process(float delta)
+	void MoveAround::_process(double delta)
 	{
+		if(godot::Engine::get_singleton()->is_editor_hint())
+		{
+			return;
+		}
+
 		timePassed += speed * delta;
 		godot::Vector2 position = godot::Vector2(amplitude + (amplitude * sin(timePassed * 2.0)),
 												 amplitude + (amplitude * cos(timePassed * 1.5)));
@@ -44,4 +51,7 @@ namespace test
 
 	float MoveAround::getSpeed() const { return speed; }
 	void MoveAround::setSpeed(float speed) { this->speed = speed; }
+
+	float MoveAround::getAmplitude() const { return amplitude; }
+	void MoveAround::setAmplitude(float amplitude) { this->amplitude = amplitude; }
 }
