@@ -9,9 +9,6 @@ godot-cpp/gen/include/godot_cpp
 godot-cpp/gen/include/godot_cpp/classes
 godot-cpp/gen/include/godot_cpp/core
 godot-cpp/gen/include/godot_cpp/variant
-
-source
-source/test
 godot-cpp/gen/src/classes
 godot-cpp/gen/src/variant
 godot-cpp/test/src
@@ -33,3 +30,6 @@ godot-cpp/tools
 godot-cpp/test/demo/bin/libgdexample.osx.template_debug.framework/Resources
 godot-cpp
 godot-cpp/misc/hooks
+
+source
+source/test

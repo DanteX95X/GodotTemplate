@@ -3201,6 +3201,7 @@ godot-cpp/tools/macos_osxcross.py
 godot-cpp/tools/my_spawn.py
 godot-cpp/tools/targets.py
 godot-cpp/tools/windows.py
+
 source/./hello.h
 source/./hello.cpp
 source/register_types.h
